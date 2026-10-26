@@ -1,0 +1,9 @@
+services:
+  taskboard:
+    build: .
+    image: taskboard
+    ports:
+      - "${PORT:-8000}:8000"   # set PORT=8080 (or put it in a .env file) to use another port
+    volumes:
+      - ./data:/data           # the SQLite database: back this folder up
+    restart: unless-stopped
